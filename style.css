@@ -54,22 +54,23 @@ kbd { padding: 2px 5px; border: 1px solid var(--line); border-radius: 3px; backg
 .color-menu { position: relative; display: inline-flex; align-items: center; }
 .color-menu-toggle { padding: 7px 10px; border: 1px solid var(--line); border-radius: 999px; color: var(--ink); background: rgba(255,255,255,.75); font-size: 10px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; }
 .color-menu-toggle:hover { border-color: var(--muted); }
-.color-options { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 7px; position: absolute; right: 0; top: calc(100% + 10px); min-width: 210px; padding: 10px; border: 1px solid var(--line); border-radius: 14px; background: rgba(255,255,255,.96); box-shadow: 0 14px 34px rgba(23,34,31,.12); opacity: 0; visibility: hidden; pointer-events: none; transform: translateY(-6px); transition: opacity .18s ease, transform .18s ease, visibility .18s ease; }
+.color-options { display: grid; gap: 5px; position: absolute; right: 0; top: calc(100% + 10px); width: 188px; padding: 8px; border: 1px solid var(--line); border-radius: 14px; background: rgba(255,255,255,.96); box-shadow: 0 14px 34px rgba(23,34,31,.18); opacity: 0; visibility: hidden; pointer-events: none; transform: translateY(-6px); transition: opacity .18s ease, transform .18s ease, visibility .18s ease; }
 .color-menu.is-open .color-options { opacity: 1; visibility: visible; pointer-events: auto; transform: translateY(0); }
-.color-choice { width: 23px; height: 23px; padding: 0; border: 2px solid white; border-radius: 50%; box-shadow: 0 0 0 1px var(--line); }
-.color-choice:hover, .color-choice.active { box-shadow: 0 0 0 2px var(--ink); }
-.color-choice-paper { background: #f7f8f4; }
-.color-choice-mint { background: #e4f3ea; }
-.color-choice-sky { background: #e5f0f6; }
-.color-choice-peach { background: #fff0e8; }
-.color-choice-lavender { background: #eeeaf6; }
-.color-choice-flame { background: #ffe0d1; }
-.color-choice-glow { background: #d7f5df; box-shadow: 0 0 9px #70d88c, 0 0 0 1px var(--line); }
-.color-choice-lemon { background: #fff7c7; }
-.color-choice-ocean { background: #d7edf2; }
-.color-choice-rose { background: #f7dfe7; }
-.color-choice-aqua { background: #d9fbff; }
-.color-choice-purple-void { background: #efe7ff; }
+.color-choice { display: flex; width: 100%; align-items: center; gap: 9px; padding: 5px 6px; border: 0; border-radius: 7px; color: var(--ink); background: transparent; font-size: 10px; font-weight: 700; text-align: left; }
+.color-choice:hover, .color-choice.active { background: #eef4ef; box-shadow: 0 0 0 2px var(--ink); }
+.color-swatch { display: block; flex: 0 0 24px; width: 24px; height: 24px; border: 2px solid white; border-radius: 50%; box-shadow: 0 0 0 1px var(--line); }
+.color-choice-paper .color-swatch { background: #f7f8f4; }
+.color-choice-mint .color-swatch { background: linear-gradient(135deg, #f1fff5, #c5ead4); }
+.color-choice-sky .color-swatch { background: linear-gradient(135deg, #f7fcff, #c9e6f5); }
+.color-choice-peach .color-swatch { background: linear-gradient(135deg, #fff8f3, #ffc7b2); }
+.color-choice-lavender .color-swatch { background: linear-gradient(135deg, #fbf8ff, #d9cdf2); }
+.color-choice-flame .color-swatch { background: linear-gradient(135deg, #fff0b3, #ff9b42 45%, #d93625); }
+.color-choice-glow .color-swatch { background: radial-gradient(circle at 30% 20%, #f3ffe9, #9bea9f 40%, #42aa72); box-shadow: 0 0 9px #70d88c, 0 0 0 1px var(--line); }
+.color-choice-lemon .color-swatch { background: linear-gradient(135deg, #fffbd4, #f4dc62); }
+.color-choice-ocean .color-swatch { background: linear-gradient(135deg, #d9fbff, #54bed0 48%, #176b88); }
+.color-choice-rose .color-swatch { background: linear-gradient(135deg, #fff0f4, #e8a5bb); }
+.color-choice-aqua .color-swatch { background: linear-gradient(135deg, #e9ffff, #43e0e4 50%, #168fae); }
+.color-choice-purple-void .color-swatch { background: radial-gradient(circle at 70% 20%, #8b5cf6, #38216f 45%, #140d2e); }
 .quiz-launch { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-top: 18px; padding: 13px 14px; border: 1px solid #e6b09f; border-radius: 2px 2px 2px 12px; color: var(--coral); background: var(--soft-coral); font-size: 11px; font-weight: 800; text-align: left; }
 .quiz-launch:hover { border-color: var(--coral); background: #ffe7df; }
 .empty-state { display: flex; height: 100%; min-height: 330px; flex-direction: column; align-items: flex-start; justify-content: flex-start; padding-top: 32px; }
