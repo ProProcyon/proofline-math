@@ -254,6 +254,28 @@ function parseWordProblem(text) {
     };
   }
 
+  const storyActions = [];
+  const addAction = /(?:gets?|receives?|gains?|adds?)\s+(\d+(?:\.\d+)?)/g;
+  const subtractAction = /(?:loses?|spends?|gives away|takes away|removes?)\s+(\d+(?:\.\d+)?)/g;
+  for (const match of lower.matchAll(addAction)) storyActions.push({ index: match.index, operator: "+", amount: Number(match[1]) });
+  for (const match of lower.matchAll(subtractAction)) storyActions.push({ index: match.index, operator: "-", amount: Number(match[1]) });
+  storyActions.sort((first, second) => first.index - second.index);
+
+  if (numbers.length >= 2 && storyActions.length >= 1 && storyActions.length === numbers.length - 1) {
+    let result = numbers[0];
+    const expressionParts = [String(numbers[0])];
+    storyActions.forEach((action) => {
+      result = action.operator === "+" ? result + action.amount : result - action.amount;
+      expressionParts.push(action.operator, String(action.amount));
+    });
+    return {
+      expression: expressionParts.join(" "),
+      result,
+      label: "Multi-step word problem",
+      operationName: "combined addition and subtraction"
+    };
+  }
+
   const operation =
     /(sum|total|altogether|in all|combined|more|added|plus|increase)/.test(lower) ? "+" :
     /(difference|less|left|remaining|after|minus|decrease|spent|gave away|lost|fewer|remains|remain|taken away|taken|removed)/.test(lower) ? "-" :
